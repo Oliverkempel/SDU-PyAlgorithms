@@ -8,33 +8,37 @@ def BinarySearch(l, key):
     
     midIndex = int(len(l) / 2)
     
-    print(str(midIndex)) 
+    #print(str(midIndex)) 
     
     midEl = l[midIndex]
     if midEl == key:
         return l[int(len(l) / 2)]
     elif key > midEl:
         afterMid = l[midIndex+1:]
-        print(str(afterMid))
+        #print(str(afterMid))
         return BinarySearch(afterMid, key)
     elif key < midEl:
         beforeMid = l[:midIndex]
-        print(str(beforeMid))
+        #print(str(beforeMid))
         return BinarySearch(beforeMid, key)
     else:
         return
 
 #BinarySearch(list, 1)
-print(str(BinarySearch(list, 18)))
+#print(str(BinarySearch(list, 18)))
 
 # Time testing
-maxVal = 10000
+maxVal = 1000000
 A = []
 for i in range(maxVal):
     A.append(i)
 
 t0 = time.time()
 print("Start time: " + str(t0))
-#res = BinarySearch(A, maxVal - 1)
+res = BinarySearch(A, maxVal - 1)
 t1 = time.time()
 print("End time: " + str(t1))
+print(f"Result: {res}")
+
+timeTaken = t1 - t0
+print("Time taken: " + f"{timeTaken:.20f}" + " Seconds")
