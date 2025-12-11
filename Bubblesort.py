@@ -1,4 +1,4 @@
-list = [7, 2, 8, 5, 4]
+list = [99, 7, 28, 5, 1, 2, 8, 5, 12, 4]
 
 def bubbleSort(l):
     
@@ -8,12 +8,12 @@ def bubbleSort(l):
         
         for i in range(len(l) - 1):
             
-            el0 = l[i]
-            el1 = l[i+1]
+            tmp0 = l[i]
+            tmp1 = l[i+1]
             
-            if(el0 > el1):
-                l[i] = el1
-                l[i+1] = el0
+            if(tmp0 > tmp1):
+                l[i] = tmp1
+                l[i+1] = tmp0
                 swaps = True
                 
         if swaps == False:
