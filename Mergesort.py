@@ -30,27 +30,48 @@ def merge(left,right):
     
     return result
 
-#my list
+
+def TestBinarySearch(amountOfElements):
+    # Creates list of random elements
+    A = []
+    for i in range(amountOfElements):
+        num = random.randint(0, 100)
+        A.append(num)
+
+    # Start time
+    t0 = time.time()
+    print("Start time: " + str(t0))
+    
+    # Runs the search
+    res = mergeSort(A)
+    
+    # End time
+    t1 = time.time()
+    print("End time: " + str(t1))
+    print(f"Result: {res}")
+    
+    # Calculates time taken
+    timeTaken = t1 - t0
+    print("Time taken: " + f"{timeTaken:.20f}" + " milliseconds")
+
+
 arr = [38, 27, 43, 3, 9, 82, 10]
 sortedArr = mergeSort(arr)
-
-
 print("Given array is", arr)
 print("Sorted array is", sortedArr)
 
-#Time testing
-maxVal = 1000000
-A = []
-for i in range(maxVal):
-    num = random.randint(0, maxVal)
-    A.append(num)
+print("=======[ Test for 10 elements ]=======")
+TestBinarySearch(10)
+print()
 
-t0 = time.time()
-print("Start time: " + str(t0))
-res = mergeSort(A)
-t1 = time.time()
-print("End time: " + str(t1))
-print(f"Result: {res}")
+print("=======[ Test for 1000 elements ]=======")
+TestBinarySearch(1000)
+print()
 
-timeTaken = t1 - t0
-print("Time taken: " + f"{timeTaken:.20f}" + " Seconds")
+print("=======[ Test for 1000000 elements ]=======")
+TestBinarySearch(1000000)
+print()
+
+print("=======[ Test for 1000000000 elements ]=======")
+TestBinarySearch(1000000000)
+print()

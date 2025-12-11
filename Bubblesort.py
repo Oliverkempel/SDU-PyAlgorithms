@@ -23,23 +23,49 @@ def bubbleSort(l):
             break
         
         #print("Pass: " + str(l))
+    return l
+
+def TestBinarySearch(amountOfElements):
+    # Creates list of random elements
+    A = []
+    for i in range(amountOfElements):
+        num = random.randint(0, 100)
+        A.append(num)
+
+    # Start time
+    t0 = time.time()
+    print("Start time: " + str(t0))
+    
+    # Runs the search
+    res = bubbleSort(A)
+    
+    # End time
+    t1 = time.time()
+    print("End time: " + str(t1))
+    print(f"Result: {res}")
+    
+    # Calculates time taken
+    timeTaken = t1 - t0
+    print("Time taken: " + f"{timeTaken:.20f}" + " milliseconds")
+
 
 print("Input: " + str(list))
 bubbleSort(list)
 print("Output: " + str(list))
 
-## Time testing yes
-A = []
-for i in range(10000):
-    num = random.randint(0, 100)
-    A.append(num)
+print("=======[ Test for 10 elements ]=======")
+TestBinarySearch(10)
+print()
 
-t0 = time.time()
-print("Start time: " + str(t0))
-res = bubbleSort(A)
-t1 = time.time()
-print("End time: " + str(t1))
+print("=======[ Test for 1000 elements ]=======")
+TestBinarySearch(1000)
+print()
 
-timeTaken = t1 - t0
+print("=======[ Test for 1000000 elements ]=======")
+TestBinarySearch(1000000)
+print()
 
-print("Time taken: " + str(timeTaken))
+print("=======[ Test for 1000000000 elements ]=======")
+TestBinarySearch(1000000000)
+print()
+

@@ -24,21 +24,41 @@ def BinarySearch(l, key):
     else:
         return
 
-#BinarySearch(list, 1)
-#print(str(BinarySearch(list, 18)))
+def TestBinarySearch(amountOfElements):
+    # Creates sorted list of elements
+    A = []
+    for i in range(amountOfElements):
+        A.append(i)
 
-# Time testing
-maxVal = 1000000
-A = []
-for i in range(maxVal):
-    A.append(i)
+    # Start time
+    t0 = time.time()
+    print("Start time: " + str(t0))
+    
+    # Runs the search
+    res = BinarySearch(A, amountOfElements - 1)
+    
+    # End time
+    t1 = time.time()
+    print("End time: " + str(t1))
+    print(f"Result: {res}")
+    
+    # Calculates time taken
+    timeTaken = t1 - t0
+    print("Time taken: " + f"{timeTaken:.20f}" + " milliseconds")
 
-t0 = time.time()
-print("Start time: " + str(t0))
-res = BinarySearch(A, maxVal - 1)
-t1 = time.time()
-print("End time: " + str(t1))
-print(f"Result: {res}")
+print("=======[ Test for 10 elements ]=======")
+TestBinarySearch(10)
+print()
 
-timeTaken = t1 - t0
-print("Time taken: " + f"{timeTaken:.20f}" + " Seconds")
+print("=======[ Test for 1000 elements ]=======")
+TestBinarySearch(1000)
+print()
+
+print("=======[ Test for 1000000 elements ]=======")
+TestBinarySearch(1000000)
+print()
+
+print("=======[ Test for 1000000000 elements ]=======")
+TestBinarySearch(1000000000)
+print()
+
